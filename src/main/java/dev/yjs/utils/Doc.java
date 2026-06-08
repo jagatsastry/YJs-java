@@ -156,6 +156,7 @@ public class Doc extends Observable {
                     n.parent = t;
                 }
                 t._length = type._length;
+                t._hasFormatting = type._hasFormatting;
                 share.put(name, t);
                 t._integrate(this, null);
                 return t;

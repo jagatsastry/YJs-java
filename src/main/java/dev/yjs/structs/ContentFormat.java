@@ -1,6 +1,5 @@
 package dev.yjs.structs;
 
-import dev.yjs.types.YText;
 import dev.yjs.utils.StructStore;
 import dev.yjs.utils.Transaction;
 import dev.yjs.utils.UpdateDecoder;
@@ -54,8 +53,10 @@ public final class ContentFormat extends AbstractContent {
 
     @Override
     public void integrate(Transaction transaction, Item item) {
-        // @todo searchmarker are currently unsupported for rich text documents
-        YText p = (YText) item.parent;
+        // @todo searchmarker are currently unsupported for rich text documents.
+        // Note: during decode the parent may still be a generic AbstractType (root types are
+        // created lazily via doc.get), so we set these on the base type rather than casting to YText.
+        dev.yjs.types.AbstractType<?> p = (dev.yjs.types.AbstractType<?>) item.parent;
         p._searchMarker = null;
         p._hasFormatting = true;
     }

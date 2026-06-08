@@ -45,6 +45,8 @@ public class AbstractType<E> {
     public EventHandler<E, Transaction> _eH = EventHandler.createEventHandler();
     public EventHandler<List<YEvent<?>>, Transaction> _dEH = EventHandler.createEventHandler();
     public List<ArraySearchMarker> _searchMarker = null;
+    /** Set when a ContentFormat is integrated under this type (YText rich-text marker). */
+    public boolean _hasFormatting = false;
 
     public static void warnPrematureAccess() {
         System.err.println("[yjs] Invalid access: Add Yjs type to a document before reading data.");

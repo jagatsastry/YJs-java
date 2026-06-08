@@ -54,7 +54,6 @@ public class YText extends AbstractType<YTextEvent> {
      * Whether this YText contains formatting attributes. Updated when a formatting item is
      * integrated (see {@link ContentFormat#integrate}).
      */
-    public boolean _hasFormatting = false;
 
     public YText() {
         super();
