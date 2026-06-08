@@ -146,7 +146,10 @@ public final class Item extends AbstractStruct {
             if (parentStruct instanceof GC) {
                 this.parent = null;
             } else {
-                this.parent = ((ContentType) ((Item) parentStruct).content).type;
+                AbstractContent c = ((Item) parentStruct).content;
+                // If the parent type was deleted its content is ContentDeleted (no `.type`);
+                // JS yields `undefined` here, so the item becomes parent-less (integrates as GC).
+                this.parent = (c instanceof ContentType ct) ? ct.type : null;
             }
         }
         return null;
