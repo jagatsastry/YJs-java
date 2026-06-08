@@ -16,6 +16,15 @@ public class YXmlText extends YText {
     /** Y type ref id (YXmlTextRefID). */
     public static final int Y_XML_TEXT_REF_ID = 6;
 
+    public YXmlText() {
+        super();
+    }
+
+    /** Inherited from YText: initialize with text content. */
+    public YXmlText(String initialText) {
+        super(initialText);
+    }
+
     /**
      * The next sibling of this text node, or {@code null}.
      */
