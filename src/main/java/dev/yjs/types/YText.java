@@ -223,6 +223,16 @@ public class YText extends AbstractType<YTextEvent> {
         return this.toDelta(null, null, null);
     }
 
+    /** Delta of this type rendered as of {@code snapshot}. */
+    public List<Map<String, Object>> toDelta(Snapshot snapshot) {
+        return this.toDelta(snapshot, null, null);
+    }
+
+    /** Delta of this type rendered as of {@code snapshot}, diffed against {@code prevSnapshot}. */
+    public List<Map<String, Object>> toDelta(Snapshot snapshot, Snapshot prevSnapshot) {
+        return this.toDelta(snapshot, prevSnapshot, null);
+    }
+
     /**
      * Compute the value of a YText change for a snapshot diff.
      */
